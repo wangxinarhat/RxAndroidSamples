@@ -5,5 +5,5 @@ package wang.wangxinarhat.rxandroidsamples.domain;
  */
 public class ImageInfoBean {
     public String description;
-    public String url;
+    public String image_url;
 }

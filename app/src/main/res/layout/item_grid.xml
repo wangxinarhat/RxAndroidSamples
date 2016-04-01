@@ -16,12 +16,12 @@
         android:padding="4dp">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/item_grid_image"
             android:layout_width="match_parent"
             android:layout_height="160dp" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/item_grid_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="14sp" />

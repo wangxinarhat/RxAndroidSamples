@@ -25,7 +25,8 @@ public class PrimaryAdapter extends RecyclerView.Adapter<ImageInfoHolder> {
 
     @Override
     public void onBindViewHolder(ImageInfoHolder holder, int position) {
-        Glide.with(holder.itemView.getContext()).load(images.get(position).url).into(holder.getImage());
+
+        Glide.with(holder.itemView.getContext()).load(images.get(position).image_url).into(holder.getImage());
         holder.getDescription().setText(images.get(position).description);
     }
 

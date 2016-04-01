@@ -13,9 +13,9 @@ import wang.wangxinarhat.rxandroidsamples.R;
  * Created by wang on 2016/4/1.
  */
 public class ImageInfoHolder extends RecyclerView.ViewHolder {
-    @Bind(R.id.image)
+    @Bind(R.id.item_grid_image)
     ImageView image;
-    @Bind(R.id.description)
+    @Bind(R.id.item_grid_description)
     TextView description;
 
     public ImageView getImage() {
