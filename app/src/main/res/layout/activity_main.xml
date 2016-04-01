@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="wang.wangxinarhat.rxandroidsamples.MainActivity">
 
-    <LinearLayout
+
+    <android.support.v7.widget.Toolbar
+        android:background="?attr/colorPrimary"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="wrap_content">
+        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
 
 
-        <Button
-            android:id="@+id/activity_game_detail_bottombar_status_button2"
-            style="@style/ButtonStyle"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="RxAndroid HelloWorld" />
 
+    </android.support.v7.widget.Toolbar>
 
-        <TextView
-            style="@style/BaseTextStyle"
-            android:layout_weight="1"
-            android:gravity="center"
-            tools:text="Hello World!" />
-    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

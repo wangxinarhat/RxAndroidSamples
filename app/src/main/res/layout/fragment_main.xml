@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_basic"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="基本" />
+
+        <Button
+            android:id="@+id/btn_map"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="转换" />
+
+        <Button
+            android:id="@+id/btn_zip"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="压合" />
+
+
+        <Button
+            android:id="@+id/btn_flatmap_token"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="TOKEN（FlatMap）" />
+
+
+        <Button
+            android:id="@+id/btn_flatmap_token_advance"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="TOKEN（Advance）" />
+
+        <Button
+            android:id="@+id/btn_cache"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="缓存" />
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
+
