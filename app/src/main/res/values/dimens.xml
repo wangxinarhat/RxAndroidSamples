@@ -2,4 +2,110 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+
+    <dimen name="my_toolbar_size">50dp</dimen>
+    <dimen name="my_navigation_bar_size">48dp</dimen>
+    <dimen name="base_button_size">48dp</dimen>
+    <dimen name="drawer_layout_padding_top">0dp</dimen>
+    <dimen name="avatar_size_small">32dp</dimen>
+    <dimen name="avatar_size_normal">40dp</dimen>
+    <dimen name="avatar_size_big">48dp</dimen>
+    <dimen name="avatar_size_very_big">56dp</dimen>
+    <!--字体大小-->
+    <dimen name="text_size_display4">112dp</dimen>
+    <dimen name="text_size_display3">56dp</dimen>
+    <dimen name="text_size_display2">45dp</dimen>
+    <dimen name="text_size_display1">34dp</dimen>
+    <dimen name="text_size_headline">24dp</dimen>
+    <dimen name="text_size_title">18dp</dimen>
+    <dimen name="text_size_subhead">16dp</dimen>
+    <dimen name="text_size_body">14dp</dimen>
+    <dimen name="text_size_caption">12dp</dimen>
+    <!--normal dimens-->
+    <dimen name="dimen_basic0">0dp</dimen>
+    <dimen name="dimen_basic1">4dp</dimen>
+    <dimen name="dimen_basic2">8dp</dimen>
+    <dimen name="dimen_basic3">12dp</dimen>
+    <dimen name="dimen_basic4">16dp</dimen>
+    <dimen name="dimen_basic5">20dp</dimen>
+    <dimen name="dimen_basic6">24dp</dimen>
+    <dimen name="dimen_basic7">28dp</dimen>
+    <dimen name="dimen_basic8">32dp</dimen>
+    <dimen name="dimen_basic9">64dp</dimen>
+    <dimen name="dimen_basic10">72dp</dimen>
+    <dimen name="dimen_big1">128dp</dimen>
+    <dimen name="dimen_big2">160dp</dimen>
+    <dimen name="dimen_big3">200dp</dimen>
+    <dimen name="dimen_big4">280dp</dimen>
+    <dimen name="dimen_small1">2dp</dimen>
+    <dimen name="dimen_small2">4dp</dimen>
+    <dimen name="dimen_small3">6dp</dimen>
+    <dimen name="dimen_small4">8dp</dimen>
+    <dimen name="dimen_small5">10dp</dimen>
+    <dimen name="dimen_small6">12dp</dimen>
+    <dimen name="vip_width">1dp</dimen>
+    <dimen name="dimen_divider_size">0.3dp</dimen>
+    <!--登录页-->
+    <dimen name="activity_sign_in_icon_size">30dp</dimen>
+    <!--动态-->
+    <dimen name="item_fragment_timeline_hot_rv_avatar_size">25dp</dimen>
+    <dimen name="item_fragment_timeline_hot_rv_icon_size">13dp</dimen>
+    <dimen name="item_fragment_timeline_new_rv_avatar_size">50dp</dimen>
+    <dimen name="item_fragment_timeline_new_rv_button_height">45dp</dimen>
+    <dimen name="item_fragment_timeline_new_rv_holder_function">0.5dp</dimen>
+    <dimen name="item_fragment_timeline_new_gender_size">12dp</dimen>
+    <!--我的-->
+    <dimen name="fragment_mine_avatar_size">50dp</dimen>
+    <dimen name="fragment_mine_icon_gender_size">14sp</dimen>
+    <!--动态详情-->
+    <dimen name="activity_dynamic_image_avatar_size">40dp</dimen>
+    <dimen name="activity_dynamic_image_user_avatar_size">40dp</dimen>
+    <dimen name="activity_dynamic_button_publish_width">60dp</dimen>
+    <!--训练详情-->
+    <dimen name="activity_practice_detail_holder_videos_height">100dp</dimen>
+    <!--我的动态头像大小-->
+    <dimen name="activity_my_dynamic_image_avatar_size">70dp</dimen>
+    <dimen name="activity_my_dynamic_coach_rg_height">40dp</dimen>
+    <!--通知列表-->
+    <dimen name="item_notification_list_my_content_size">50dp</dimen>
+    <dimen name="item_notification_list_my_content_text_size">70dp</dimen>
+    <dimen name="item_notification_list_content_margin_right">78dp</dimen>
+    <dimen name="item_notification_list_text_max_width">60dp</dimen>
+    <dimen name="item_notification_list_text_max_height">80dp</dimen>
+    <dimen name="item_notification_list_text_min_width">60dp</dimen>
+    <dimen name="item_notification_list_text_min_height">80dp</dimen>
+    <!--SplashActivity-->
+    <dimen name="activity_splash_margin_top">100dp</dimen>
+    <!--发布视频-->
+    <dimen name="activity_publish_video_size">100dp</dimen>
+    <dimen name="activity_publish_video_holder_size">250dp</dimen>
+    <!--popup loading-->
+    <dimen name="popup_loading_image_size">40dp</dimen>
+    <!--相册选择器-->
+    <dimen name="albumitem_height">100dp</dimen>
+    <dimen name="albumitem_content_height">80dp</dimen>
+    <dimen name="albumitem_image_height">20dp</dimen>
+
+    <dimen name="checkbox_height">25dp</dimen>
+
+    <dimen name="layout_title_height">45dp</dimen>
+    <dimen name="layout_title_content_height">30dp</dimen>
+    <dimen name="layout_title_mini_textsize">16sp</dimen>
+
+    <dimen name="sticky_item_horizontalSpacing">2dp</dimen>
+    <dimen name="sticky_item_verticalSpacing">2dp</dimen>
+    <dimen name="collection_photo_toolbar_height">45dp</dimen>
+
+    <dimen name="follow_button_width">56dp</dimen>
+    <!-- 培训筛选-->
+    <dimen name="item_course_list_avater_size">60dp</dimen> <!-- 培训筛选-->
+    <dimen name="fragment_course_detail_photo_height">@dimen/dimen_big3</dimen>
+    <!--私教详情头部布局-->
+    <dimen name="fragment_private_teacher_header_height">152dp</dimen>
+    <!--聊天-->
+    <dimen name="fragment_message_chat_item_height">72dp</dimen>
+    <!--消息详情-->
+    <dimen name="message_detail_report_header_height">108dp</dimen>
 </resources>

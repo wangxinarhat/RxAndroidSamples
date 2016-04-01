@@ -8,4 +8,30 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+
+    <style name="BaseTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/text_size_subhead</item>
+        <item name="android:textColor">@color/text_black_secondary</item>
+    </style>
+
+
+    <style name="ButtonStyle">
+
+        <item name="android:background">@drawable/ripple_button_background</item>
+        <item name="android:textColor">@color/grey_white_1000</item>
+        <item name="android:layout_height">@dimen/avatar_size_normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_subhead</item>
+        <item name="android:layout_margin">@dimen/dimen_basic1</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
 </resources>
