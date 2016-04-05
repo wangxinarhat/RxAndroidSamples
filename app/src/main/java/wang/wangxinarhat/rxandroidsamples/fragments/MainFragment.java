@@ -60,8 +60,10 @@ public class MainFragment
                 clickedOn(ZipFragment.class);
                 break;
             case R.id.btn_flatmap_token:
+                clickedOn(TokenFragment.class);
                 break;
             case R.id.btn_flatmap_token_advance:
+                clickedOn(TokenAdvancedFragment.class);
                 break;
             case R.id.btn_cache:
                 break;

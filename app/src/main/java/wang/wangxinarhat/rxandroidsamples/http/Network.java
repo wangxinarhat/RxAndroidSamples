@@ -10,12 +10,13 @@ import retrofit2.Retrofit;
 import retrofit2.RxJavaCallAdapterFactory;
 import wang.wangxinarhat.rxandroidsamples.http.api.FakeApi;
 import wang.wangxinarhat.rxandroidsamples.http.api.GankApi;
+import wang.wangxinarhat.rxandroidsamples.http.api.TokenApi;
 import wang.wangxinarhat.rxandroidsamples.http.api.ZhuangbiApi;
 
 public class Network {
     private static ZhuangbiApi zhuangbiApi;
     private static GankApi gankApi;
-    private static FakeApi fakeApi;
+    private static TokenApi fakeApi;
     private static OkHttpClient okHttpClient = new OkHttpClient();
     private static Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
     private static CallAdapter.Factory rxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
@@ -46,9 +47,9 @@ public class Network {
         return gankApi;
     }
 
-    public static FakeApi getFakeApi() {
+    public static TokenApi getTokenApi() {
         if (fakeApi == null) {
-            fakeApi = new FakeApi();
+            fakeApi = new TokenApi();
         }
         return fakeApi;
     }
