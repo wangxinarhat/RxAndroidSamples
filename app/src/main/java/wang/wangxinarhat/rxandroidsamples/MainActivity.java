@@ -23,16 +23,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Fragment fragment = null;
-        try {
-            fragment = MainFragment.class.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
         if (savedInstanceState == null) {
+
+            Fragment fragment = null;
+            try {
+                fragment = MainFragment.class.newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, fragment, this.toString())
                     .commit();
