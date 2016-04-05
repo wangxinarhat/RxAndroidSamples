@@ -57,6 +57,7 @@ public class MainFragment
                 clickedOn(MapFragment.class);
                 break;
             case R.id.btn_zip:
+                clickedOn(ZipFragment.class);
                 break;
             case R.id.btn_flatmap_token:
                 break;

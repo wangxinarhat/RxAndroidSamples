@@ -13,10 +13,9 @@ import wang.wangxinarhat.rxandroidsamples.domain.ImageInfoBean;
 public class BeautyResult2Beautise implements Func1<BeautyResult, List<ImageInfoBean>> {
 
 
-    public static BeautyResult2Beautise newInstance(){
+    public static BeautyResult2Beautise newInstance() {
         return new BeautyResult2Beautise();
     }
-
 
 
     @Override
@@ -24,8 +23,7 @@ public class BeautyResult2Beautise implements Func1<BeautyResult, List<ImageInfo
 
         List<ImageInfoBean> imageInfoBeanList = new ArrayList<>(beautyResult.results.size());
 
-        for (ImageInfoBean bean :
-                beautyResult.results) {
+        for (ImageInfoBean bean : beautyResult.results) {
             ImageInfoBean imageInfoBean = new ImageInfoBean();
 
             imageInfoBean.description = bean.desc;

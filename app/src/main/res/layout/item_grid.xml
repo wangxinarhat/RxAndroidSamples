@@ -16,7 +16,6 @@
         android:padding="4dp">
 
         <ImageView
-            android:scaleType="centerCrop"
             android:id="@+id/item_grid_image"
             android:layout_width="match_parent"
             android:layout_height="160dp" />
