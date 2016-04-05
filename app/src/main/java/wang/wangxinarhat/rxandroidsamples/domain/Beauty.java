@@ -1,12 +1,9 @@
 package wang.wangxinarhat.rxandroidsamples.domain;
 
 /**
- * Created by wang on 2016/4/1.
+ * Created by wang on 2016/4/5.
  */
-public class ImageInfoBean {
-    public String description;
-    public String image_url;
-
+public class Beauty {
 
     public String desc;
     public String url;

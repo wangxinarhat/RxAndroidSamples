@@ -54,6 +54,7 @@ public class MainFragment
                 clickedOn(PrimaryFragment.class);
                 break;
             case R.id.btn_map:
+                clickedOn(MapFragment.class);
                 break;
             case R.id.btn_zip:
                 break;

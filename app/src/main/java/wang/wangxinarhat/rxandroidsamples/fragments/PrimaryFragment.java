@@ -1,5 +1,3 @@
-// (c)2016 Flipboard Inc, All Rights Reserved.
-
 package wang.wangxinarhat.rxandroidsamples.fragments;
 
 import android.graphics.Color;
@@ -33,25 +31,8 @@ public class PrimaryFragment extends BaseFragment {
     @Bind(R.id.gridRv)
     RecyclerView gridRv;
 
-    PrimaryAdapter adapter = new PrimaryAdapter();
-    Observer<List<ImageInfoBean>> observer = new Observer<List<ImageInfoBean>>() {
-        @Override
-        public void onCompleted() {
-        }
-
-        @Override
-        public void onError(Throwable e) {
-            swipeRefreshLayout.setRefreshing(false);
-            Toast.makeText(getActivity(), R.string.loading_failed, Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onNext(List<ImageInfoBean> images) {
-            swipeRefreshLayout.setRefreshing(false);
-            adapter.setImages(images);
-        }
-    };
-
+    PrimaryAdapter adapter;
+    Observer<List<ImageInfoBean>> observer;
 
 
     @OnCheckedChanged({R.id.searchRb1, R.id.searchRb2, R.id.searchRb3, R.id.searchRb4})
@@ -65,11 +46,64 @@ public class PrimaryFragment extends BaseFragment {
     }
 
     private void search(String key) {
+
         subscription = Network.getZhuangbiApi()
                 .search(key)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(observer);
+                .subscribe(getObserver());
+    }
+
+    private Observer<? super List<ImageInfoBean>> getObserver() {
+
+        if (null == observer) {
+            observer = new Observer<List<ImageInfoBean>>() {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    swipeRefreshLayout.setRefreshing(false);
+                    Toast.makeText(getActivity(), R.string.loading_failed, Toast.LENGTH_SHORT).show();
+                }
+
+
+                @Override
+                public void onNext(List<ImageInfoBean> images) {
+
+                    swipeRefreshLayout.setRefreshing(false);
+                    adapter.setImages(images);
+                }
+            };
+        }
+
+        return observer;
+
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unsubscribe();
+        ButterKnife.unbind(this);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
+        super.onActivityCreated(savedInstanceState);
+
+        gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        if (null == adapter) {
+            adapter = new PrimaryAdapter();
+        }
+        gridRv.setAdapter(adapter);
+        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
+        swipeRefreshLayout.setEnabled(false);
+
     }
 
     @Nullable
@@ -77,11 +111,6 @@ public class PrimaryFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_primary, container, false);
         ButterKnife.bind(this, view);
-
-        gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        gridRv.setAdapter(adapter);
-        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
-        swipeRefreshLayout.setEnabled(false);
 
         return view;
     }
