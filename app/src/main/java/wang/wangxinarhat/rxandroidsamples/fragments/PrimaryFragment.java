@@ -35,6 +35,38 @@ public class PrimaryFragment extends BaseFragment {
     Observer<List<ImageInfoBean>> observer;
 
 
+
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        inflater.inflate(R.menu.menu_list, menu);
+//        super.onCreateOptionsMenu(menu,inflater);
+//    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
+        super.onActivityCreated(savedInstanceState);
+
+        gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        if (null == adapter) {
+            adapter = new PrimaryAdapter();
+        }
+        gridRv.setAdapter(adapter);
+        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
+        swipeRefreshLayout.setEnabled(false);
+
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_primary, container, false);
+        ButterKnife.bind(this, view);
+
+        return view;
+    }
+
+
     @OnCheckedChanged({R.id.searchRb1, R.id.searchRb2, R.id.searchRb3, R.id.searchRb4})
     void onTagChecked(RadioButton searchRb, boolean checked) {
         if (checked) {
@@ -92,30 +124,6 @@ public class PrimaryFragment extends BaseFragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-
-        super.onActivityCreated(savedInstanceState);
-
-        gridRv.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        if (null == adapter) {
-            adapter = new PrimaryAdapter();
-        }
-        gridRv.setAdapter(adapter);
-        swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
-        swipeRefreshLayout.setEnabled(false);
-
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_primary, container, false);
-        ButterKnife.bind(this, view);
-
-        return view;
-    }
-
-    @Override
     protected int getDialogRes() {
         return R.layout.dialog_elementary;
     }
@@ -123,5 +131,11 @@ public class PrimaryFragment extends BaseFragment {
     @Override
     protected int getTitleRes() {
         return R.string.title_elementary;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 }

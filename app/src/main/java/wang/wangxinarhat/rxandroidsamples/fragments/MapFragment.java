@@ -100,7 +100,7 @@ public class MapFragment extends BaseFragment {
 //        swipeRefreshLayout.setRefreshing(true);
         unsubscribe();
         subscription = Network.getGankApi()
-                .getBeauties(6, page)
+                .getBeauties(8, page)
                 .map(BeautyResult2Beautise.newInstance())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

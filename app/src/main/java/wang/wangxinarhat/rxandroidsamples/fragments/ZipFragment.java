@@ -73,7 +73,7 @@ public class ZipFragment extends BaseFragment implements SwipeRefreshLayout.OnRe
 
         swipeRefreshLayout.setRefreshing(true);
 
-        subscription = Observable.zip(Network.getGankApi().getBeauties(100, 1).map(BeautyResult2Beautise.newInstance()),
+        subscription = Observable.zip(Network.getGankApi().getBeauties(188, 1).map(BeautyResult2Beautise.newInstance()),
                 Network.getZhuangbiApi().search("装逼"),
                 new Func2<List<ImageInfoBean>, List<ImageInfoBean>, List<ImageInfoBean>>() {
                     @Override

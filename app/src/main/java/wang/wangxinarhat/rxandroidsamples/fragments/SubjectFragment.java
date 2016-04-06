@@ -8,8 +8,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -74,22 +72,12 @@ public class SubjectFragment extends BaseFragment {
 
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-
-//        inflater.inflate(R.menu.menu_search, menu);
-
-//        MenuItem item = menu.findItem(R.id.action_search);
-//        searchView.setMenuItem(item);
-
-    }
-
-    @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
         unsubscribe();
     }
+
 
     @OnClick(R.id.load)
     public void onClick() {
@@ -137,5 +125,21 @@ public class SubjectFragment extends BaseFragment {
     @Override
     protected int getDialogRes() {
         return R.layout.dialog_cache;
+    }
+
+    @OnClick({R.id.clear_memory, R.id.clear_memory_and_disk})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.clear_memory:
+                Data.newInstance().clearMemoryCache();
+                adapter.setImages(null);
+                Toast.makeText(getActivity(), R.string.memory_cache_cleared, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.clear_memory_and_disk:
+                Data.newInstance().clearMemoryAndDiskCache();
+                adapter.setImages(null);
+                Toast.makeText(getActivity(), R.string.memory_and_disk_cache_cleared, Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }
