@@ -66,6 +66,7 @@ public class MainFragment
                 clickedOn(TokenAdvancedFragment.class);
                 break;
             case R.id.btn_cache:
+                clickedOn(SubjectFragment.class);
                 break;
         }
     }

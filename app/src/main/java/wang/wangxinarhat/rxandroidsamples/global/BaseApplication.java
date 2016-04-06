@@ -13,23 +13,23 @@ import wang.wangxinarhat.rxandroidsamples.http.volley.VolleyHelper;
  */
 public class BaseApplication extends Application{
 
-    private static BaseApplication _instance;
-    private RefWatcher _refWatcher;
+    private static BaseApplication application;
+    private RefWatcher refWatcher;
 
-    public static BaseApplication get() {
-        return _instance;
+    public static BaseApplication getApplication() {
+        return application;
     }
 
     public static RefWatcher getRefWatcher() {
-        return BaseApplication.get()._refWatcher;
+        return BaseApplication.getApplication().refWatcher;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        _instance = (BaseApplication) getApplicationContext();
-        _refWatcher = LeakCanary.install(this);
+        application = (BaseApplication) getApplicationContext();
+        refWatcher = LeakCanary.install(this);
 
         // Initialize Volley
         VolleyHelper.init(this);

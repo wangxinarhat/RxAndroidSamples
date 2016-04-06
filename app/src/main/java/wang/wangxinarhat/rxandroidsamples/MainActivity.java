@@ -12,8 +12,6 @@ import wang.wangxinarhat.rxandroidsamples.fragments.MainFragment;
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = MainActivity.class.getSimpleName();
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
 
 
     @Override
@@ -38,6 +36,5 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
 
-        setSupportActionBar(toolbar);
     }
 }

@@ -2,14 +2,12 @@ package wang.wangxinarhat.rxandroidsamples.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -111,6 +109,17 @@ public class TokenAdvancedFragment extends BaseFragment {
         return view;
 
 
+    }
+
+
+    @Override
+    protected int getTitleRes() {
+        return R.string.title_token_advanced;
+    }
+
+    @Override
+    protected int getDialogRes() {
+        return R.layout.dialog_token_advanced;
     }
 
     @Override
