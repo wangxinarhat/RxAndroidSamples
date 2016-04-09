@@ -46,6 +46,12 @@
             android:layout_width="match_parent"
             android:text="缓存" />
 
+ <Button
+            android:id="@+id/btn_concurrency_schedulers"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="耗时操作" />
+
 
     </LinearLayout>
 

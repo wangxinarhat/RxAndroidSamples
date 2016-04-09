@@ -46,5 +46,6 @@
     <string name="memory_cache_cleared">内存缓存已清空</string>
     <string name="memory_and_disk_cache_cleared">内存缓存和磁盘缓存都已清空</string>
     <string name="dialog_cache">RxJava 中有一个较少被人用到的类叫做 Subject，它是一种『既是 Observable，又是 Observer』的东西，因此可以被用作中间件来做数据传递。例如，可以用它的子类 BehaviorSubject 来制作缓存。代码大致形式：\n\napi.getData()\n&#160;&#160;&#160;&#160;.subscribe(<b>behaviorSubject</b>); // 网络数据会被缓存\n\n<b>behaviorSubject.subscribe(observer);</b> // 之前的缓存将直接送达 observer\n\n(详见本项目源码)</string>
+    <string name="msg_specification_concurrency" >This is a demo of how long running operations can be offloaded to a background thread. After the operation is done, we resume back on the main thread. All using RxJava! \n\n To really see this shine. Hit the button multiple times and see how the button click which is a ui operation is never blocked because the long operation only runs in the background</string>
 
 </resources>

@@ -19,6 +19,7 @@ public class BaseFragment
         super.onDestroy();
         RefWatcher refWatcher = BaseApplication.getRefWatcher();
         refWatcher.watch(this);
+
     }
 
 
