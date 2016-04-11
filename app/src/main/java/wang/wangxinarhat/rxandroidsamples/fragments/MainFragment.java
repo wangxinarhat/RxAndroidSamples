@@ -47,7 +47,7 @@ public class MainFragment
     }
 
 
-    @OnClick({R.id.btn_basic, R.id.btn_map, R.id.btn_zip, R.id.btn_flatmap_token, R.id.btn_flatmap_token_advance, R.id.btn_cache,R.id.btn_concurrency_schedulers})
+    @OnClick({R.id.btn_basic, R.id.btn_map, R.id.btn_zip, R.id.btn_flatmap_token, R.id.btn_flatmap_token_advance, R.id.btn_cache,R.id.btn_concurrency_schedulers,R.id.btn_buffer})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_basic:
@@ -71,6 +71,9 @@ public class MainFragment
 
             case R.id.btn_concurrency_schedulers:
                 clickedOn(ConcurrencySchedulersFragment.class);
+                break;
+            case R.id.btn_buffer:
+                clickedOn(BufferFragment.class);
                 break;
         }
     }

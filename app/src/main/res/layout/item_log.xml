@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+android:paddingLeft="@dimen/dimen_basic2"
+android:paddingRight="@dimen/dimen_basic2"
+    android:id="@+id/log"
+    style="@style/BaseTextStyle"
+    android:textSize="@dimen/text_size_caption"
+    tools:text="test" />

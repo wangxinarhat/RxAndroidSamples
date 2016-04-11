@@ -36,6 +36,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">@dimen/text_size_subhead</item>
         <item name="android:layout_margin">@dimen/dimen_basic1</item>
+        <item name="android:paddingLeft">@dimen/dimen_basic2</item>
+        <item name="android:paddingRight">@dimen/dimen_basic2</item>
         <item name="android:gravity">center</item>
     </style>
 
