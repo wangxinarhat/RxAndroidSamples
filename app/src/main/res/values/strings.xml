@@ -59,5 +59,6 @@
     <string name="msg_doublebinding" >\u0009\u0009PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者。PublishSubject可能会一创建完成就立刻开始发射数据，因此在Subject被创建后到有观察者订阅它之前这个时间段内，一个或多个数据可能会丢失。如果要确保来自原始Observable的所有数据都被分发，需使用Create创建那个Observable以便手动给它引入"冷"Observable的行为，或者改用ReplaySubject。
 
     </string>
+    <string name="msg_polling" >\u0009\u0009Interval操作符返回一个Observable，它按固定的时间间隔发射一个无限递增的整数序列。</string>
 
 </resources>

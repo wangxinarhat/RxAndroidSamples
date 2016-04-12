@@ -74,6 +74,13 @@
             android:text="PublishSubject Demo" />
 
 
+        <Button
+            android:id="@+id/btn_interval"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="Interval 操作符" />
+
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
