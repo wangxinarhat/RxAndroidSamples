@@ -46,25 +46,32 @@
             android:layout_width="match_parent"
             android:text="缓存" />
 
- <Button
+        <Button
             android:id="@+id/btn_concurrency_schedulers"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:text="耗时操作" />
 
 
- <Button
+        <Button
             android:id="@+id/btn_buffer"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:text="Buffer操作符" />
 
 
- <Button
+        <Button
+
             android:id="@+id/btn_debounce"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:text="Debounce操作符" />
+
+        <Button
+            android:id="@+id/btn_subject"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="PublishSubject Demo" />
 
 
     </LinearLayout>
