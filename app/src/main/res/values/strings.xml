@@ -53,5 +53,8 @@
 
 \u0009\u0009注意：如果原来的Observable发射了一个onError通知，Buffer会立即传递这个通知，而不是首先发射缓存的数据，即使在这之前缓存中包含了原始Observable发射的数据。
          </string>
+    <string name="msg_debounce">\u0009\u0009Debounce操作符会过滤掉发射速率过快的数据项，仅在过了一段指定的时间还没发射数据时才发射一个数据\n
+
+    </string>
 
 </resources>

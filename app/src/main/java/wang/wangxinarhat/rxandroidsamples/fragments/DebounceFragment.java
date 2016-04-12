@@ -9,9 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
 
-import com.jakewharton.rxbinding.view.RxView;
+import com.jakewharton.rxbinding.widget.RxTextView;
+import com.jakewharton.rxbinding.widget.TextViewTextChangeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,21 +20,22 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import wang.wangxinarhat.rxandroidsamples.R;
 import wang.wangxinarhat.rxandroidsamples.adapter.LogAdapter;
 
 /**
- * Created by wang on 2016/4/11.
+ * Created by wang on 2016/4/12.
  */
-public class BufferFragment extends BaseFragment {
+public class DebounceFragment extends BaseFragment {
 
+    @Bind(R.id.input)
+    EditText input;
     @Bind(R.id.recycler)
     RecyclerView recycler;
-    @Bind(R.id.btn)
-    Button btn;
+
 
 
     private List<String> mLogs;
@@ -43,43 +45,27 @@ public class BufferFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_buffer, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_debounce, container, false);
         ButterKnife.bind(this, view);
 
         return view;
+
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
         setLogger();
-
-
-        subscription = RxView.clicks(btn)
-                .map(new Func1<Void, Integer>() {
-                    @Override
-                    public Integer call(Void aVoid) {
-                        log("点击一次");
-                        return 1;
-                    }
-                })
-                .buffer(3, TimeUnit.SECONDS)
+        subscription = RxTextView.textChangeEvents(input)
+                .debounce(500, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(getObserver());
-
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
-    }
+    private Observer<? super TextViewTextChangeEvent> getObserver() {
 
-
-    private Observer<List<Integer>> getObserver() {
-        return new Observer<List<Integer>>() {
+        return new Observer<TextViewTextChangeEvent>() {
             @Override
             public void onCompleted() {
 
@@ -91,11 +77,30 @@ public class BufferFragment extends BaseFragment {
             }
 
             @Override
-            public void onNext(List<Integer> integers) {
-
-                log(String.format("3s内 %d 次点击", integers.size()));
+            public void onNext(TextViewTextChangeEvent textViewTextChangeEvent) {
+                log(String.format("搜索关键字 ： %s",textViewTextChangeEvent.text().toString()));
             }
         };
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    @OnClick({R.id.clear_input, R.id.clear_log})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.clear_input:
+                input.getText().clear();
+                break;
+            case R.id.clear_log:
+
+                mLogs.clear();
+                mAdapter.notifyDataSetChanged();
+                break;
+        }
     }
 
 
@@ -130,5 +135,6 @@ public class BufferFragment extends BaseFragment {
         mAdapter = new LogAdapter(mLogs);
         recycler.setAdapter(mAdapter);
     }
+
 
 }
