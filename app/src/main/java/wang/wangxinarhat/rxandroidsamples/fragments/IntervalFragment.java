@@ -90,7 +90,7 @@ public class IntervalFragment extends BaseFragment {
         compositeSubscription.add(
 
                 Observable.just(1)
-                .repeatWhen(new RepeatWithDelay(8,1000))
+                .repeatWhen(new RepeatWithDelay(188,1000))
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {

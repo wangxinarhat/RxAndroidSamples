@@ -60,5 +60,6 @@
 
     </string>
     <string name="msg_polling" >\u0009\u0009Interval操作符返回一个Observable，它按固定的时间间隔发射一个无限递增的整数序列。</string>
+    <string name="msg_combine">combine des</string>
 
 </resources>

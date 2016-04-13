@@ -81,6 +81,13 @@
             android:text="Interval 操作符" />
 
 
+        <Button
+            android:id="@+id/btn_combineLatest"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="CombineLatest 操作符" />
+
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

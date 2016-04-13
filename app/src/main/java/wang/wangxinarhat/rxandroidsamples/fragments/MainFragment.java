@@ -47,7 +47,7 @@ public class MainFragment
     }
 
 
-    @OnClick({R.id.btn_interval,R.id.btn_subject,R.id.btn_debounce, R.id.btn_basic, R.id.btn_map, R.id.btn_zip, R.id.btn_flatmap_token, R.id.btn_flatmap_token_advance, R.id.btn_cache, R.id.btn_concurrency_schedulers, R.id.btn_buffer})
+    @OnClick({R.id.btn_combineLatest, R.id.btn_interval, R.id.btn_subject, R.id.btn_debounce, R.id.btn_basic, R.id.btn_map, R.id.btn_zip, R.id.btn_flatmap_token, R.id.btn_flatmap_token_advance, R.id.btn_cache, R.id.btn_concurrency_schedulers, R.id.btn_buffer})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_basic:
@@ -83,6 +83,10 @@ public class MainFragment
                 break;
             case R.id.btn_interval:
                 clickedOn(IntervalFragment.class);
+                break;
+
+            case R.id.btn_combineLatest:
+                clickedOn(CombineLatestFragment.class);
                 break;
 
 

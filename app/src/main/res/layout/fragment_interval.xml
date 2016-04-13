@@ -26,7 +26,7 @@
         <Button
             style="@style/ButtonStyle"
             android:id="@+id/increasingly_delayed_polling"
-            android:text="发射无限递增整数序列" />
+            android:text="发射无限递增序列" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
