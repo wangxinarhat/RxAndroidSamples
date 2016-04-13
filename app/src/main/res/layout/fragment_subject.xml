@@ -18,10 +18,9 @@
             tools:text="好事10s" />
 
         <Button
+            style="@style/ButtonStyle"
             android:id="@+id/load"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="load" />
+            android:text="加载数据" />
 
         <include layout="@layout/tip_bt" />
     </LinearLayout>

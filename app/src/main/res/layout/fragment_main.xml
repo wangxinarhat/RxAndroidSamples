@@ -12,52 +12,52 @@
             android:id="@+id/btn_basic"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="基本" />
+            android:text="RxJava基本使用" />
 
         <Button
             android:id="@+id/btn_map"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="转换" />
-
-        <Button
-            android:id="@+id/btn_zip"
-            style="@style/ButtonStyle"
-            android:layout_width="match_parent"
-            android:text="压合" />
-
+            android:text="Map操作符（变换）" />
 
         <Button
             android:id="@+id/btn_flatmap_token"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="TOKEN（FlatMap）" />
+            android:text="FlatMap操作符（变换）" />
+
+
+        <Button
+            android:id="@+id/btn_zip"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="Zip操作符（结合）" />
 
 
         <Button
             android:id="@+id/btn_flatmap_token_advance"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="TOKEN（Advance）" />
+            android:text="retryWhen操作符（错误处理）" />
 
         <Button
             android:id="@+id/btn_cache"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="缓存" />
-
-        <Button
-            android:id="@+id/btn_concurrency_schedulers"
-            style="@style/ButtonStyle"
-            android:layout_width="match_parent"
-            android:text="耗时操作" />
-
+            android:text="BehaviorSubject操作符（桥梁）" />
 
         <Button
             android:id="@+id/btn_buffer"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="Buffer操作符" />
+            android:text="Buffer操作符（变换）" />
+
+
+        <Button
+            android:id="@+id/btn_combineLatest"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:text="CombineLatest 操作符（结合）" />
 
 
         <Button
@@ -65,27 +65,27 @@
             android:id="@+id/btn_debounce"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="Debounce操作符" />
+            android:text="Debounce操作符（过滤）" />
 
         <Button
             android:id="@+id/btn_subject"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="PublishSubject Demo" />
+            android:text="PublishSubject操作符（桥梁）" />
 
 
         <Button
             android:id="@+id/btn_interval"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="Interval 操作符" />
+            android:text="Interval 操作符（创建心跳发射序列）" />
 
 
         <Button
-            android:id="@+id/btn_combineLatest"
+            android:id="@+id/btn_concurrency_schedulers"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="CombineLatest 操作符" />
+            android:text="耗时操作" />
 
 
     </LinearLayout>

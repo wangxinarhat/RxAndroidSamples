@@ -9,34 +9,46 @@
     <string name="request_data">请求数据</string>
     <string name="load">加载</string>
     <string name="loading_failed">数据加载失败</string>
-    <string name="title_elementary">基本</string>
-    <string name="title_map">转换(map)</string>
-    <string name="title_zip">压合(zip)</string>
+    <string name="title_elementary">RxJava基本使用</string>
+    <string name="title_map">Map（变换）</string>
+    <string name="title_zip">Zip（结合）</string>
     <string name="page_with_number">第%s页</string>
     <string name="next_page">下一页</string>
     <string name="previous_page">上一页</string>
     <string name="unknow_date">未知日期</string>
     <string name="responsed_data">返回的数据</string>
-    <string name="title_token">Token(flatMap)</string>
-    <string name="title_token_advanced">Token_高级(retryWhen)</string>
+    <string name="title_token">flatMap</string>
+    <string name="title_token_advanced">retryWhen（错误处理）</string>
     <string name="invalidate_token">销毁 token</string>
-    <string name="title_cache">缓存(BehaviorSubject)</string>
+    <string name="title_cache">BehaviorSubject（桥梁）</string>
     <string name="loading_time_and_source">耗时：%1$sms(从%2$s)</string>
     <string name="data_source_memory">内存</string>
     <string name="data_source_disk">磁盘</string>
     <string name="data_source_network">网络</string>
-    <string name="question_mark">\?</string>
+    <string name="question_mark">说明</string>
     <string name="dialog_elementary">RxJava 和 Retrofit 结合使用最基本的格式：用 subscribeOn() 和 observeOn() 来控制线程，并通过 subscribe() 来触发网络请求的开始。代码大致形式：\n\napi.getData()\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);</string>
     <string name="api_source_zhuangbi">* 本页 Sample 使用的 API 来自 <b>装逼大全</b> zhuangbi.info</string>
     <string name="api_source_gank">* 本页 Sample 使用的 API 来自 <b>干货集中营</b> gank.io</string>
     <string name="api_source_zhuangbi_and_gank">* 本页 Sample 使用的 API 来自 <b>装逼大全</b> zhuangbi.info 和 <b>干货集中营</b> gank.io</string>
-    <string name="dialog_map">有些服务端的接口设计，会在返回的数据外层包裹一些额外信息，这些信息对于调试很有用，但本地显示是用不到的。使用 map() 可以把外层的格式剥掉，只留下本地会用到的核心格式。代码大致形式：\n\napi.getData()\n&#160;&#160;&#160;&#160;<b>.map(response -> response.data)</b>\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);\n\n(详见本项目源码)\n\n当然，map() 也可以用于基于其他各种需求的格式转换。</string>
-    <string name="dialog_zip">有的时候，app 中会需要同时访问不同接口，然后将结果糅合后转为统一的格式后输出（例如将第三方广告 API 的广告夹杂进自家平台返回的数据 List 中）。这种并行的异步处理比较麻烦，不过用了 zip() 之后就会简单得多。代码大致形式：\n\n<b>Observable.zip(api.getData(),\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;adApi.getAds(), zipFunc())</b>\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);\n\n(详见本项目源码)</string>
-    <string name="dialog_token">出于安全性、性能等方面的考虑，多数服务器会有一些接口需要传入 token 才能正确返回结果，而 token 是需要从另一个接口获取的，这就需要使用两步连续的请求才能获取数据（①token -> ②目标数据）。使用 flatMap() 可以用较为清晰的代码实现这种连续请求，避免 Callback 嵌套的结构。代码大致形式：\n\napi<b>.getToken()\n&#160;&#160;&#160;&#160;.flatMap(token -> api.getData(token))</b>\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);\n\n(详见本项目源码)</string>
+    <string name="dialog_map">\u0009\u0009\u0009对Observable发射的每一项数据应用一个函数，执行变换为指定类型的操作,然后再发射。\n\n使用场景：\n\u0009\u0009\u0009有些服务端的接口设计，会在返回的数据外层包裹一些额外信息，这些信息对于调试很有用，但本地显示是用不到的。使用 map() 可以把外层的格式剥掉，只留下本地会用到的核心格式。代码大致形式：\n\napi.getData()\n&#160;&#160;&#160;&#160;<b>.map(response -> response.data)</b>\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);\n\n(详见本项目源码)\n\n当然，map() 也可以用于基于其他各种需求的格式转换。</string>
+    <string name="dialog_zip">\u0009\u0009\u0009通过一个函数将多个Observables的发射内容结合到一起，基于这个函数的结果为每个结合体发射单个数据项。
+
+        \n\u0009\u0009\u0009Zip操作符返回一个Obversable，它使用这个函数按顺序结合多个Observables发射的数据项，然后它发射这个函数返回的结果，它只发射与数据项最少的那个Observable一样多的数据。
+
+        \n\n使用场景：\n\u0009\u0009\u0009有的时候，app 中会需要同时访问不同接口，然后将结果糅合后转为统一的格式后输出（例如将第三方广告 API 的广告夹杂进自家平台返回的数据 List 中）。这种并行的异步处理比较麻烦，不过用了 zip() 之后就会简单得多。代码大致形式：\n\n<b>Observable.zip(api.getData(),\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;adApi.getAds(), zipFunc())</b>\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);\n\n(详见本项目源码)</string>
+    <string name="dialog_token">
+        \u0009\u0009\u0009FlatMap操作符使用一个指定的函数对原始Observable发射的每一项数据执行变换操作，这个函数返回一个本身也发射数据的Observable，然后FlatMap合并这些Observables发射的数据，最后将合并后的结果当做它自己的数据序列发射。
+
+        \n\n使用场景：\n\u0009\u0009\u0009出于安全性、性能等方面的考虑，多数服务器会有一些接口需要传入 token 才能正确返回结果，而 token 是需要从另一个接口获取的，这就需要使用两步连续的请求才能获取数据（①token -> ②目标数据）。使用 flatMap() 可以用较为清晰的代码实现这种连续请求，避免 Callback 嵌套的结构。代码大致形式：\n\napi<b>.getToken()\n&#160;&#160;&#160;&#160;.flatMap(token -> api.getData(token))</b>\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);\n\n(详见本项目源码)</string>
     <string name="api_source_rengwuxian">* 由于找不到足够简单的用于示例的 token API，本页 Sample 使用的 API 是<b>我用代码伪造的</b></string>
     <string name="got_data">获取到的数据：\nID：%1$d\n用户名：%2$s</string>
     <string name="got_token_and_data">token:%1$s\n\n获取到的数据：\nID：%2$d\n用户名：%3$s</string>
-    <string name="dialog_token_advanced">有的 token 并非一次性的，而是可以多次使用，直到它超时或被销毁（多数 token 都是这样的）。这样的 token 处理起来比较麻烦：需要把它保存起来，并且在发现它失效的时候要能够自动重新获取新的 token 并继续访问之前由于 token 失效而失败的请求。如果项目中有多处的接口请求都需要这样的自动修复机制，使用传统的 Callback 形式需要写出非常复杂的代码。而使用 RxJava ，可以用 retryWhen() 来轻松地处理这样的问题。代码大致形式：\n\napi<b>.getData(token)\n&#160;&#160;&#160;&#160;.retryWhen(observable ->\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;observable.flatMap( ->\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;api.getToken()\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.doOnNext(->updateToken())))</b>\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);\n\n(详见本项目源码)</string>
+    <string name="dialog_token_advanced">
+        \u0009\u0009\u0009retryWhen操作符不会将原始Observable的onError通知传递给观察者，它会订阅这个Observable，再给它一次机会无错误地完成它的数据序列。retryWhen总是传递onNext通知给观察者，无论收到多少次onError通知，无参数版本的retryWhen会继续订阅并发射原始Observable。
+
+        \n\u0009\u0009\u0009接受单个count参数的retry会最多重新订阅指定的次数，如果次数超了，它不会尝试再次订阅，它会把最新的一个onError通知传递给它的观察者。
+
+        \n\n使用场景：\n\u0009\u0009\u0009有的 token 并非一次性的，而是可以多次使用，直到它超时或被销毁（多数 token 都是这样的）。这样的 token 处理起来比较麻烦：需要把它保存起来，并且在发现它失效的时候要能够自动重新获取新的 token 并继续访问之前由于 token 失效而失败的请求。如果项目中有多处的接口请求都需要这样的自动修复机制，使用传统的 Callback 形式需要写出非常复杂的代码。而使用 RxJava ，可以用 retryWhen() 来轻松地处理这样的问题。代码大致形式：\n\napi<b>.getData(token)\n&#160;&#160;&#160;&#160;.retryWhen(observable ->\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;observable.flatMap( ->\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;api.getToken()\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.doOnNext(->updateToken())))</b>\n&#160;&#160;&#160;&#160;.subscribeOn(Schedulers.io())\n&#160;&#160;&#160;&#160;.observeOn(AndroidSchedulers.mainThread())\n&#160;&#160;&#160;&#160;.subscribe(observer);\n\n(详见本项目源码)</string>
     <string name="token_expired">token 已失效</string>
     <string name="updated">已更新</string>
     <string name="token_destroyed">token 已销毁</string>
@@ -44,22 +56,28 @@
     <string name="clearMemoryAndDiskCache">清空内存和磁盘缓存</string>
     <string name="memory_cache_cleared">内存缓存已清空</string>
     <string name="memory_and_disk_cache_cleared">内存缓存和磁盘缓存都已清空</string>
-    <string name="dialog_cache">RxJava 中有一个较少被人用到的类叫做 Subject，它是一种『既是 Observable，又是 Observer』的东西，因此可以被用作中间件来做数据传递。例如，可以用它的子类 BehaviorSubject 来制作缓存。代码大致形式：\n\napi.getData()\n&#160;&#160;&#160;&#160;.subscribe(<b>behaviorSubject</b>); // 网络数据会被缓存\n\n<b>behaviorSubject.subscribe(observer);</b> // 之前的缓存将直接送达 observer\n\n(详见本项目源码)</string>
+    <string name="dialog_cache">
+
+        \u0009\u0009\u0009Subject可以看成是一个桥梁或者代理，它同时充当了Observer和Observable的角色。它可以订阅一个或多个Observable，可以转发它收到(Observe)的数据，也可以发射新的数据。
+\n\n\u0009\u0009\u0009当观察者订阅BehaviorSubject时，它开始发射原始Observable最近发射的数据（如果此时还没有收到任何数据，它会发射一个默认值），然后继续发射其它任何来自原始Observable的数据。
+
+
+       \n\n使用场景：\n\u0009\u0009\u0009\n制作缓存,代码大致形式：\n\napi.getData()\n&#160;&#160;&#160;&#160;.subscribe(<b>behaviorSubject</b>); // 网络数据会被缓存\n\n<b>behaviorSubject.subscribe(observer);</b> // 之前的缓存将直接送达 observer\n\n(详见本项目源码)</string>
     <string name="msg_specification_concurrency">This is a demo of how long running operations can be offloaded to a background thread. After the operation is done, we resume back on the main thread. All using RxJava! \n\n To really see this shine. Hit the button multiple times and see how the button click which is a ui operation is never blocked because the long operation only runs in the background</string>
     <string name="msg_buffer">
 
-        \u0009\u0009定期收集Observable的数据放进一个数据包裹，然后发射这些数据包裹，而不是一次发射一个值。\n
-        \u0009\u0009Buffer操作符将一个Observable变换为另一个，原来的Observable正常发射数据，变换产生的Observable发射这些数据的缓存集合。\n
+        \u0009\u0009\u0009定期收集Observable的数据放进一个数据包裹，然后发射这些数据包裹，而不是一次发射一个值。\n
+        \u0009\u0009\u0009Buffer操作符将一个Observable变换为另一个，原来的Observable正常发射数据，变换产生的Observable发射这些数据的缓存集合。\n
 
-\u0009\u0009注意：如果原来的Observable发射了一个onError通知，Buffer会立即传递这个通知，而不是首先发射缓存的数据，即使在这之前缓存中包含了原始Observable发射的数据。
+\u0009\u0009\u0009注意：如果原来的Observable发射了一个onError通知，Buffer会立即传递这个通知，而不是首先发射缓存的数据，即使在这之前缓存中包含了原始Observable发射的数据。
          </string>
-    <string name="msg_debounce">\u0009\u0009Debounce操作符会过滤掉发射速率过快的数据项，仅在过了一段指定的时间还没发射数据时才发射一个数据\n
+    <string name="msg_debounce">\u0009\u0009\u0009Debounce操作符会过滤掉发射速率过快的数据项，仅在过了一段指定的时间还没发射数据时才发射一个数据\n
 
     </string>
-    <string name="msg_doublebinding" >\u0009\u0009PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者。PublishSubject可能会一创建完成就立刻开始发射数据，因此在Subject被创建后到有观察者订阅它之前这个时间段内，一个或多个数据可能会丢失。如果要确保来自原始Observable的所有数据都被分发，需使用Create创建那个Observable以便手动给它引入"冷"Observable的行为，或者改用ReplaySubject。
+    <string name="msg_doublebinding">\u0009\u0009\u0009PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者。PublishSubject可能会一创建完成就立刻开始发射数据，因此在Subject被创建后到有观察者订阅它之前这个时间段内，一个或多个数据可能会丢失。如果要确保来自原始Observable的所有数据都被分发，需使用Create创建那个Observable以便手动给它引入"冷"Observable的行为，或者改用ReplaySubject。
 
     </string>
-    <string name="msg_polling" >\u0009\u0009Interval操作符返回一个Observable，它按固定的时间间隔发射一个无限递增的整数序列。</string>
-    <string name="msg_combine">combine des</string>
+    <string name="msg_polling">\u0009\u0009\u0009Interval操作符返回一个Observable，它按固定的时间间隔发射一个无限递增的整数序列。</string>
+    <string name="msg_combine">\u0009\u0009\u0009CombineLatest结合多个Observable发射的最近数据项，当原始Observables的任何一个发射了一条数据时，CombineLatest使用一个函数结合它们最近发射的数据，然后发射这个函数的返回值。</string>
 
 </resources>
