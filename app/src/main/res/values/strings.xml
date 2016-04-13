@@ -71,13 +71,15 @@
 
 \u0009\u0009\u0009注意：如果原来的Observable发射了一个onError通知，Buffer会立即传递这个通知，而不是首先发射缓存的数据，即使在这之前缓存中包含了原始Observable发射的数据。
          </string>
-    <string name="msg_debounce">\u0009\u0009\u0009Debounce操作符会过滤掉发射速率过快的数据项，仅在过了一段指定的时间还没发射数据时才发射一个数据\n
-
+    <string name="msg_debounce">\u0009\u0009\u0009Debounce操作符会过滤掉发射速率过快的数据项，仅在过了一段指定的时间还没发射数据时才发射一个数据
+\n\n使用场景：\n\u0009\u0009\u0009搜索网络请求
     </string>
     <string name="msg_doublebinding">\u0009\u0009\u0009PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者。PublishSubject可能会一创建完成就立刻开始发射数据，因此在Subject被创建后到有观察者订阅它之前这个时间段内，一个或多个数据可能会丢失。如果要确保来自原始Observable的所有数据都被分发，需使用Create创建那个Observable以便手动给它引入"冷"Observable的行为，或者改用ReplaySubject。
 
     </string>
     <string name="msg_polling">\u0009\u0009\u0009Interval操作符返回一个Observable，它按固定的时间间隔发射一个无限递增的整数序列。</string>
-    <string name="msg_combine">\u0009\u0009\u0009CombineLatest结合多个Observable发射的最近数据项，当原始Observables的任何一个发射了一条数据时，CombineLatest使用一个函数结合它们最近发射的数据，然后发射这个函数的返回值。</string>
+    <string name="msg_combine">
+
+        \u0009\u0009\u0009CombineLatest结合多个Observable发射的最近数据项，当原始Observables的任何一个发射了一条数据时，CombineLatest使用一个函数结合它们最近发射的数据，然后发射这个函数的返回值。</string>
 
 </resources>

@@ -11,6 +11,7 @@
         android:text="@string/msg_debounce" />
 
     <LinearLayout
+        android:paddingTop="@dimen/dimen_basic3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -27,7 +28,7 @@
                 android:id="@+id/input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter some search text"
+                android:hint="输入要的搜索内容"
                 android:inputType="textNoSuggestions"
                 android:textSize="16sp" />
 
@@ -44,7 +45,7 @@
             android:layout_gravity="center_vertical"
             android:id="@+id/clear_log"
             style="@style/ButtonStyle"
-            android:text="clear" />
+            android:text="clear log" />
 
     </LinearLayout>
 

@@ -4,12 +4,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.List;
@@ -33,14 +35,9 @@ public class PrimaryFragment extends BaseFragment {
 
     PrimaryAdapter adapter;
     Observer<List<ImageInfoBean>> observer;
+    @Bind(R.id.radio_group)
+    RadioGroup mRadioGroup;
 
-
-
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.menu_list, menu);
-//        super.onCreateOptionsMenu(menu,inflater);
-//    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -53,7 +50,8 @@ public class PrimaryFragment extends BaseFragment {
         }
         gridRv.setAdapter(adapter);
         swipeRefreshLayout.setColorSchemeColors(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW);
-        swipeRefreshLayout.setEnabled(false);
+
+        search(((AppCompatRadioButton)mRadioGroup.getChildAt(0)).getText().toString());
 
     }
 

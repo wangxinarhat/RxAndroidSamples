@@ -12,7 +12,7 @@
             android:id="@+id/btn_basic"
             style="@style/ButtonStyle"
             android:layout_width="match_parent"
-            android:text="RxJava基本使用" />
+            android:text="RxJava与Retrofit结合，基本使用" />
 
         <Button
             android:id="@+id/btn_map"

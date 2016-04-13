@@ -2,12 +2,13 @@ package wang.wangxinarhat.rxandroidsamples.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,15 +31,17 @@ import wang.wangxinarhat.rxandroidsamples.operators.BeautyResult2Beautise;
  */
 public class MapFragment extends BaseFragment {
 
-    private int page;
+    private int page =1;
     @Bind(R.id.pageTv)
     TextView pageTv;
     @Bind(R.id.previousPageBt)
-    AppCompatButton previousPageBt;
+    Button previousPageBt;
     @Bind(R.id.nextPageBt)
-    AppCompatButton nextPageBt;
+    Button nextPageBt;
     @Bind(R.id.gridRv)
     RecyclerView gridRv;
+    @Bind(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout  mSwipeRefreshLayout;
 
     PrimaryAdapter adapter;
 
@@ -58,12 +61,14 @@ public class MapFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        gridRv.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+        gridRv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
         if (null == adapter) {
             adapter = new PrimaryAdapter();
         }
         gridRv.setAdapter(adapter);
+
+        loadPage(page);
 
     }
 
@@ -78,16 +83,15 @@ public class MapFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.previousPageBt:
+                loadPage(--page);
                 if (page > 1) {
-                    loadPage(--page);
-
                     previousPageBt.setEnabled(true);
                 } else {
                     previousPageBt.setEnabled(false);
                 }
                 break;
             case R.id.nextPageBt:
-                loadPage(page++);
+                loadPage(++page);
                 if (page > 1) {
                     previousPageBt.setEnabled(true);
                 }
@@ -97,7 +101,7 @@ public class MapFragment extends BaseFragment {
 
 
     private void loadPage(int page) {
-//        swipeRefreshLayout.setRefreshing(true);
+        mSwipeRefreshLayout.setRefreshing(true);
         unsubscribe();
         subscription = Network.getGankApi()
                 .getBeauties(8, page)
@@ -113,11 +117,13 @@ public class MapFragment extends BaseFragment {
             observer = new Observer<List<ImageInfoBean>>() {
                 @Override
                 public void onCompleted() {
-
+                    mSwipeRefreshLayout.setRefreshing(false);
                 }
 
                 @Override
                 public void onError(Throwable e) {
+                    mSwipeRefreshLayout.setRefreshing(false);
+
                     Toast.makeText(getActivity(), R.string.loading_failed, Toast.LENGTH_SHORT).show();
                 }
 
