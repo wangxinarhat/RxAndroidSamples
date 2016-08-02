@@ -101,6 +101,8 @@ public class MapFragment extends BaseFragment {
 
 
     private void loadPage(int page) {
+
+
         mSwipeRefreshLayout.setRefreshing(true);
         unsubscribe();
         subscription = Network.getGankApi()
